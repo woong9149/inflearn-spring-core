@@ -2,6 +2,7 @@ package hello.core;
 
 import hello.core.discount.DiscountPolicy;
 import hello.core.discount.FixDiscountPolicy;
+import hello.core.discount.RateDiscountPolicy;
 import hello.core.member.MemberRepository;
 import hello.core.member.MemberService;
 import hello.core.member.MemberServiceImpl;
@@ -9,6 +10,10 @@ import hello.core.member.MemoryMemberRepository;
 import hello.core.order.OrderService;
 import hello.core.order.OrderServiceImpl;
 
+/**
+ * - 구성영역
+ * - 공연에 비유하자면 기획자인셈
+ */
 public class AppConfig {
 
     public MemberService memberService() {
@@ -24,6 +29,12 @@ public class AppConfig {
     }
 
     public DiscountPolicy discountPolicy() {
-        return new FixDiscountPolicy();
+        /**
+         * - 할인 정책이 바뀌면 이 부분만 수정해주면됨
+         * - 구현영역이 아니라 구성영역만 변경하는 것(DIP, OCP를 모두 만족)
+         */
+
+//        return new FixDiscountPolicy();
+        return new RateDiscountPolicy();
     }
 }
