@@ -66,12 +66,12 @@ public class ApplicationContextExtendsFindTest {
     @Configuration
     static class TestConfig {
 
-        @Bean
+        @Bean("rateDiscountPolicy")
         public DiscountPolicy rateDiscoundPolicy() {
             return new RateDiscountPolicy();
         }
 
-        @Bean
+        @Bean("fixDiscountPolicy")
         public DiscountPolicy fixDiscoundPolicy() {
             return new FixDiscountPolicy();
         }
