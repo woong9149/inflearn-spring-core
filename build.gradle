@@ -22,6 +22,15 @@ repositories {
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter'
+	// web 라이브러리 추가
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	/**
+	 * - spring-boot-starter-web 라이브러리를 추가하면 스프링 부트는 내장 톰켓 서버를 활용해서
+	 * 		웹 서버와 스프링을 함께 실행시킨다.(localhost를 열었을 때 열린다는 말)
+	 * - 스프링 부트는 웹 라이브러리가 없으면 AnnotationConfigApplicationContext를 기반으로 애플리케이션을 구동한다.
+	 * 		웹 라이브러리가 추가 되면 웹과 관련된 추가 설정과 환경들이 필요하므로
+	 * 		AnnotationConfigServletWebServerApplicationContext 를 기반으로 애플리케이션을 구동한다.
+	 */
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	implementation 'javax.inject:javax.inject:1'
 
